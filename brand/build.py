@@ -147,9 +147,8 @@ def button(label, icon_path, filled=True):
 
 ICONS = {
     "portfolio": ("Portfólio", "M12 2a10 10 0 100 20 10 10 0 000-20zM2 12h20M12 2a15 15 0 010 20M12 2a15 15 0 000 20", True),
-    "projetos": ("Ver projetos", "M3 7h7l2 2h9v10H3zM3 7V5h6l2 2", False),
+    "linkedin": ("LinkedIn", "M4 4h16v16H4zM8 11v5M8 8v.01M12 16v-5M12 13a2 2 0 0 1 4 0v3", False),
     "curriculo": ("Currículo", "M6 2h9l5 5v15H6zM14 2v6h6M9 13h8M9 17h6", False),
-    "email": ("E-mail", "M3 5h18v14H3zM3 5l9 8 9-8", False),
 }
 
 
