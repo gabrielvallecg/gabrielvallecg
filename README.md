@@ -72,6 +72,7 @@ Manutenção e suporte em computadores; atendimento ao cliente e suporte interno
 <p align="center">
 <a href="https://www.credly.com/badges/3bb0804b-36ea-4049-b088-4237927f8861"><img src="assets/certificado-aws-cloud-foundations.svg" alt="AWS Academy Graduate – Cloud Foundations — Amazon Web Services, AWS Academy — emitido em nov/2026 — verificável no Credly" width="49%"></a>
 <picture><img src="assets/certificado-cisco-cybersecurity.svg" alt="Introdução à Cibersegurança — Cisco Networking Academy — concluído em abr/2026" width="49%"></picture>
+<picture><img src="assets/certificado-cisco-packet-tracer.svg" alt="Começando com o Cisco Packet Tracer — Cisco Networking Academy — concluído em mar/2026, 2 horas" width="49%"></picture>
 </p>
 
 ## Tech Stack

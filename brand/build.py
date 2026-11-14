@@ -294,6 +294,8 @@ CERTS = [
      "emitido em nov/2026", "amazonwebservices", TXT, "verificável no Credly · clique para abrir"),
     ("cisco-cybersecurity", "Introdução à Cibersegurança", "Cisco Networking Academy", "concluído em abr/2026",
      "si-cisco", "#1BA0D7", "Cert ID 06ee2162 · certificado em PDF"),
+    ("cisco-packet-tracer", "Começando com o Cisco Packet Tracer", "Cisco Networking Academy",
+     "concluído em mar/2026 · 2 h", "si-cisco", "#1BA0D7", "Cert ID 3b0c7349 · simulação de redes"),
 ]
 
 
