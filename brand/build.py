@@ -1,7 +1,6 @@
 """Gera os SVGs do perfil (grafite suave com detalhes em vermelho). Rode: python brand/build.py
 
-Os blocos têm 1280 px de largura e são empilhados colados no README:
-o primeiro de cada coluna tem cantos arredondados em cima, o último embaixo.
+Cada bloco é um card de 1280 px; o README os separa por títulos de seção.
 """
 import base64
 from pathlib import Path
@@ -56,7 +55,7 @@ def shape(h, top, bottom, r=20):
     return (f"M{a} 0H{W - a}Q{W} 0 {W} {a}V{h - b}Q{W} {h} {W - b} {h}H{b}Q0 {h} 0 {h - b}V{a}Q0 0 {a} 0Z")
 
 
-def block(h, title, body, label, top=False, bottom=False, bar=True):
+def block(h, title, body, label, top=True, bottom=True, bar=True):
     a = escape(label, {'"': "&quot;"})
     p = shape(h, top, bottom)
     head = ""
@@ -68,13 +67,14 @@ def block(h, title, body, label, top=False, bottom=False, bar=True):
                 + t(100, 29, f"gabriel@dev:~$ {title}", fill=MUTED))
     else:
         dots = ""
-    edge = f'<path d="M0 .5H{W}" stroke="{LINE}"/>' if not top else ""
+    edge = ""
     return f'''<svg xmlns="http://www.w3.org/2000/svg" width="{W}" height="{h}" viewBox="0 0 {W} {h}" role="img" aria-label="{a}">
 <title>{a}</title>
 <defs><clipPath id="c"><path d="{p}"/></clipPath>
 <linearGradient id="rail" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="{RED_D}"/><stop offset=".5" stop-color="{RED}"/><stop offset="1" stop-color="{RED_D}"/>
 <animate attributeName="y2" values="1;2;1" dur="6s" repeatCount="indefinite"/></linearGradient></defs>
 <g clip-path="url(#c)"><rect width="{W}" height="{h}" fill="{BG}"/>{head}{edge}<rect width="5" height="{h}" fill="url(#rail)"/></g>
+<path d="{p}" fill="none" stroke="{LINE}" stroke-width="2"/>
 {dots}
 {body}
 </svg>
@@ -177,7 +177,7 @@ EXPERIENCE = [
     ("mai/2025 – mar/2026", "Jovem Aprendiz (CIEE)", "Colégio Santa Ângela",
      "Manutenção e suporte em computadores, atendimento e suporte interno, planilhas e relatórios administrativos (Excel e VBA)."),
     ("2025 – em andamento", "Sistemas de Informação", "Centro Universitário Dom Bosco (AEDB)",
-     "Bacharelado, 4º período. Projetos em grupo: BarberFlow (Projeto Integrador na AWS) e Água Limpa, Vida Sustentável (extensão)."),
+     "Bacharelado, 4º período, em andamento."),
 ]
 
 
@@ -199,12 +199,7 @@ def experience():
     return block(y + 4, "cat experiencia.log", "\n".join(body), label)
 
 
-def section_head(title, cmd, note):
-    body = fade(t(50, 100, title, 30, TXT, 700) + t(50, 132, note, 16, MUTED), 0)
-    return block(160, cmd, body, f"{title}. {note}")
-
-
-def card(name, path, status, desc, tags, foot, preview, bottom=False, extra=""):
+def card(name, path, status, desc, tags, foot, preview, extra=""):
     """Projeto sem moldura: prévia à esquerda, texto à direita, linha fina separando do próximo."""
     lines = wrap(desc, 62)
     py = 36
@@ -231,7 +226,7 @@ def card(name, path, status, desc, tags, foot, preview, bottom=False, extra=""):
     g.append(chips(tx, y + 2, tags, size=14))
     g.append(t(tx, y + 64, f"▸ {foot}", 14, FAINT))
     label = f"{name} — {stext}. {desc} Tecnologias: {', '.join(tags)}. {foot}."
-    return block(h, "", fade(pv, 0) + fade("".join(g), 1), label, bottom=bottom, bar=False)
+    return block(h, "", fade(pv, 0) + fade("".join(g), 1), label, bar=False)
 
 
 def crm_placeholder():
@@ -270,10 +265,10 @@ def stack():
 
 FACULDADE = [
     ("barberflow", "BarberFlow", ("No ar na AWS", True),
-     "Projeto Integrador: sistema de agendamento online para barbearias, publicado na AWS. EC2 t3.micro roda o site, a API em Node.js e o banco SQLite (no disco EBS); ao ligar, busca a versão nova no S3 por uma role do IAM, sem chave no código. Security Group libera só a porta 80. Custo estimado: US$ 11,90/mês.",
-     ["EC2", "S3", "IAM", "Node.js", "SQLite"], "Projeto Integrador em grupo · 2026 · clique para ver o case completo"),
+     "Agendamento online para barbearias, publicado na AWS: EC2 com Node.js e SQLite, pacote no S3 lido por role do IAM e só a porta 80 aberta. Custo estimado de US$ 11,90/mês.",
+     ["EC2", "S3", "IAM", "Node.js", "SQLite"], "Projeto Integrador · 2026 · clique para ver o case"),
     ("agua-limpa", "Água Limpa, Vida Sustentável", ("Concluído", False),
-     "Projeto de extensão com Fisioterapia e Engenharia Mecânica, em parceria com a SANEAR: site de conscientização sobre água potável e saneamento, filtro de garrafa PET de baixo custo e ações com a comunidade em Resende.",
+     "Projeto de extensão com a SANEAR: site de conscientização sobre água e saneamento, filtro de garrafa PET e ações com a comunidade em Resende.",
      ["HTML", "CSS", "JavaScript", "Firebase"], "extensão universitária · grupo de 9 · 3 cursos · 2026"),
 ]
 
@@ -294,9 +289,12 @@ PROJECTS = [
 
 
 def footer():
-    body = fade(t(W / 2, 62, "gabriel@dev:~$ exit", 16, RED, anchor="middle")
-                + f'<path d="M380 56H520M760 56H900" stroke="{RED_D}"/>', 0)
-    return block(100, "", body, "Fim do perfil", bottom=True, bar=False)
+    return f'''<svg xmlns="http://www.w3.org/2000/svg" width="420" height="40" viewBox="0 0 420 40" role="img" aria-label="Fim do perfil">
+<title>Fim do perfil</title>
+<path d="M0 20H130M290 20H420" stroke="{DIM}"/>
+{t(210, 26, "gabriel@dev:~$ exit", 15, FAINT, anchor="middle")}
+</svg>
+'''
 
 
 # ---------------------------------------------------------------- BarberFlow: arquitetura (página do case)
@@ -347,11 +345,7 @@ if __name__ == "__main__":
         old.unlink()
     files = {
         "banner.svg": banner(), "perfil.svg": perfil(), "experiencia.svg": experience(),
-        "faculdade.svg": section_head("Projetos da faculdade", "ls faculdade/",
-                                      "Trabalhos em grupo da graduação em Sistemas de Informação."),
         "stack.svg": stack(),
-        "projetos.svg": section_head("Projetos em destaque", "ls projetos/",
-                                     "Clique aqui para a visão geral de todos os projetos  ↗"),
         "footer.svg": footer(), "barberflow-arquitetura.svg": arquitetura(),
     }
     files |= {f"btn-{k}.svg": button(*v) for k, v in ICONS.items()}

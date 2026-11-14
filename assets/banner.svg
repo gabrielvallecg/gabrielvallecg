@@ -4,6 +4,7 @@
 <linearGradient id="rail" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#5E3A3C"/><stop offset=".5" stop-color="#E07070"/><stop offset="1" stop-color="#5E3A3C"/>
 <animate attributeName="y2" values="1;2;1" dur="6s" repeatCount="indefinite"/></linearGradient></defs>
 <g clip-path="url(#c)"><rect width="1280" height="420" fill="#1A1C21"/><rect width="1280" height="48" fill="#202328"/><path d="M10 48.5H1280" stroke="#30333A"/><rect width="5" height="420" fill="url(#rail)"/></g>
+<path d="M20 0H1260Q1280 0 1280 20V400Q1280 420 1260 420H20Q0 420 0 400V20Q0 0 20 0Z" fill="none" stroke="#30333A" stroke-width="2"/>
 <circle cx="36" cy="24" r="5" fill="#42454C"/><circle cx="54" cy="24" r="5" fill="#42454C"/><circle cx="72" cy="24" r="5" fill="#E07070"><animate attributeName="opacity" values="1;.35;1" dur="2.4s" repeatCount="indefinite"/></circle><text x="100" y="29" font-family="'JetBrains Mono', 'SF Mono', Consolas, Menlo, 'DejaVu Sans Mono', monospace" font-size="16" font-weight="400" fill="#B1B3B8" text-anchor="start">gabriel@dev:~$ ./apresentar --perfil</text>
 <defs><radialGradient id="g" cx="85%" cy="30%" r="65%"><stop offset="0" stop-color="#E07070" stop-opacity=".14"><animate attributeName="stop-opacity" values=".14;.08;.14" dur="7s" repeatCount="indefinite"/></stop><stop offset="1" stop-color="#E07070" stop-opacity="0"/></radialGradient><pattern id="p" width="32" height="32" patternUnits="userSpaceOnUse"><path d="M32 0H0V32" fill="none" stroke="#22252B"/></pattern></defs>
 <rect x="8" y="49" width="1272" height="371" fill="url(#p)"/>
