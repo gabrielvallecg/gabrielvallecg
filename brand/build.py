@@ -134,11 +134,15 @@ def banner():
 
 
 def button(label, icon_path, filled=True):
+    """filled: True = vermelho do tema, False = neutro, ou uma cor hex (fundo dessa cor, texto branco)."""
     w = int(len(label) * 13 * 0.62 + 76)
-    bg, fg = (RED, "#FFFFFF") if filled else (CARD, TXT)
+    if isinstance(filled, str):
+        bg, fg, edge = filled, "#FFFFFF", filled
+    else:
+        bg, fg, edge = (RED, "#FFFFFF", RED) if filled else (CARD, TXT, LINE)
     return f'''<svg xmlns="http://www.w3.org/2000/svg" width="{w}" height="42" viewBox="0 0 {w} 42" role="img" aria-label="{label}">
 <title>{label}</title>
-<rect x=".5" y=".5" width="{w-1}" height="41" rx="10" fill="{bg}" stroke="{RED if filled else LINE}"/>
+<rect x=".5" y=".5" width="{w-1}" height="41" rx="10" fill="{bg}" stroke="{edge}"/>
 <svg x="20" y="12" width="18" height="18" viewBox="0 0 24 24"><path fill="none" stroke="{fg}" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="{icon_path}"/></svg>
 {t(48, 26, label.upper(), 13, fg, 600, extra=' letter-spacing="1.2"')}
 </svg>
@@ -147,7 +151,8 @@ def button(label, icon_path, filled=True):
 
 ICONS = {
     "portfolio": ("Portfólio", "M12 2a10 10 0 100 20 10 10 0 000-20zM2 12h20M12 2a15 15 0 010 20M12 2a15 15 0 000 20", True),
-    "linkedin": ("LinkedIn", "M4 4h16v16H4zM8 11v5M8 8v.01M12 16v-5M12 13a2 2 0 0 1 4 0v3", False),
+    # azul do logo do LinkedIn; nome novo para escapar do cache do GitHub
+    "linkedin-azul": ("LinkedIn", "M4 4h16v16H4zM8 11v5M8 8v.01M12 16v-5M12 13a2 2 0 0 1 4 0v3", "#0A66C2"),
     "curriculo": ("Currículo", "M6 2h9l5 5v15H6zM14 2v6h6M9 13h8M9 17h6", False),
 }
 

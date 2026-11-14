@@ -2,7 +2,7 @@
 <picture><img src="assets/banner.svg" alt="Gabriel do Valle. IA, automação e desenvolvimento web. Resende, RJ. Full-stack. Sistemas de Informação, 4º período. Disponível para projetos." width="100%"></picture>
 <br>
 <a href="https://gabrielvallecg.github.io"><img src="assets/btn-portfolio.svg" alt="Portfólio" height="42"></a>
-<a href="https://www.linkedin.com/in/gabriel-do-valle-574b96368/"><img src="assets/btn-linkedin.svg" alt="LinkedIn" height="42"></a>
+<a href="https://www.linkedin.com/in/gabriel-do-valle-574b96368/"><img src="assets/btn-linkedin-azul.svg" alt="LinkedIn" height="42"></a>
 <a href="assets/curriculo-gabriel-do-valle.pdf"><img src="assets/btn-curriculo.svg" alt="Currículo em PDF" height="42"></a>
 <br><br>
 <picture><img src="assets/perfil.svg" alt="Perfil. Atuação: desenvolvedor web autônomo. Formação: Sistemas de Informação, 4º período, UniDomBosco (AEDB). Foco: IA aplicada a processos. Entrega: da arquitetura ao deploy." width="100%"></picture>
