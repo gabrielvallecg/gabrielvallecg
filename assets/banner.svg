@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="420" viewBox="0 0 1280 420" role="img" aria-label="Gabriel do Valle. IA, automação e desenvolvimento web. Resende, RJ. Full-stack. Disponível para projetos.">
+<title>Gabriel do Valle. IA, automação e desenvolvimento web. Resende, RJ. Full-stack. Disponível para projetos.</title>
+<defs><clipPath id="c"><rect width="1280" height="420" rx="20"/></clipPath></defs>
+<g clip-path="url(#c)"><rect width="1280" height="420" fill="#0A0A0A"/>
+<rect width="1280" height="48" fill="#141010"/><rect width="10" height="420" fill="#E5383B"/></g>
+<path d="M10 48.5H1280" stroke="#2A1A1A"/>
+<rect x=".5" y=".5" width="1279" height="419" rx="20" fill="none" stroke="#2A1A1A"/>
+<circle cx="36" cy="24" r="5" fill="#3A2A2A"/><circle cx="54" cy="24" r="5" fill="#3A2A2A"/><circle cx="72" cy="24" r="5" fill="#E5383B"/>
+<text x="100" y="29" font-family="'JetBrains Mono', 'SF Mono', Consolas, Menlo, 'DejaVu Sans Mono', monospace" font-size="16" font-weight="400" fill="#A3A3A3" text-anchor="start">gabriel@dev:~$ ./apresentar --perfil</text>
+<defs><radialGradient id="g" cx="85%" cy="30%" r="60%"><stop offset="0" stop-color="#E5383B" stop-opacity=".35"/><stop offset="1" stop-color="#E5383B" stop-opacity="0"/></radialGradient><pattern id="p" width="32" height="32" patternUnits="userSpaceOnUse"><path d="M32 0H0V32" fill="none" stroke="#1A1212"/></pattern></defs>
+<rect x="10" y="49" width="1270" height="371" fill="url(#p)"/>
+<rect x="10" y="49" width="1270" height="371" fill="url(#g)"/>
+<text x="70" y="130" font-family="'JetBrains Mono', 'SF Mono', Consolas, Menlo, 'DejaVu Sans Mono', monospace" font-size="20" font-weight="400" fill="#E5383B" text-anchor="start">&gt; whoami</text>
+<text x="70" y="205" font-family="'JetBrains Mono', 'SF Mono', Consolas, Menlo, 'DejaVu Sans Mono', monospace" font-size="64" font-weight="700" fill="#F2F2F2" text-anchor="start">Gabriel do Valle</text>
+<text x="70" y="255" font-family="'JetBrains Mono', 'SF Mono', Consolas, Menlo, 'DejaVu Sans Mono', monospace" font-size="26" font-weight="400" fill="#FF6B6B" text-anchor="start">IA · Automação · Desenvolvimento Web</text>
+<text x="70" y="300" font-family="'JetBrains Mono', 'SF Mono', Consolas, Menlo, 'DejaVu Sans Mono', monospace" font-size="20" font-weight="400" fill="#A3A3A3" text-anchor="start">Transformo processos manuais em sistemas.</text>
+<rect x="70" y="335" width="127" height="34" rx="8" fill="#170F0F" stroke="#2A1A1A"/><text x="84" y="357" font-family="'JetBrains Mono', 'SF Mono', Consolas, Menlo, 'DejaVu Sans Mono', monospace" font-size="15" font-weight="400" fill="#F2F2F2" text-anchor="start">Resende, RJ</text>
+<rect x="209.0" y="335" width="118" height="34" rx="8" fill="#170F0F" stroke="#2A1A1A"/><text x="223.0" y="357" font-family="'JetBrains Mono', 'SF Mono', Consolas, Menlo, 'DejaVu Sans Mono', monospace" font-size="15" font-weight="400" fill="#F2F2F2" text-anchor="start">Full-stack</text>
+<rect x="339.0" y="335" width="244" height="34" rx="8" fill="#170F0F" stroke="#7A1416"/><text x="353.0" y="357" font-family="'JetBrains Mono', 'SF Mono', Consolas, Menlo, 'DejaVu Sans Mono', monospace" font-size="15" font-weight="400" fill="#FF6B6B" text-anchor="start">Disponível para projetos</text>
+<rect x="1000" y="110" width="200" height="200" rx="28" fill="#170F0F" stroke="#7A1416" stroke-width="2"/>
+<text x="1100" y="238" font-family="'JetBrains Mono', 'SF Mono', Consolas, Menlo, 'DejaVu Sans Mono', monospace" font-size="84" font-weight="700" fill="#E5383B" text-anchor="middle">GV</text>
+<rect x="1088" y="262" width="24" height="5" fill="#E5383B"><animate attributeName="opacity" values="1;0;1" dur="1.2s" repeatCount="indefinite"/></rect>
+</svg>

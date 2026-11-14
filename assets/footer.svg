@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="420" height="40" viewBox="0 0 420 40" role="img" aria-label="Fim do perfil">
+<title>Fim do perfil</title>
+<path d="M0 20H150M270 20H420" stroke="#7A1416"/>
+<text x="210" y="26" font-family="'JetBrains Mono', 'SF Mono', Consolas, Menlo, 'DejaVu Sans Mono', monospace" font-size="15" font-weight="400" fill="#E5383B" text-anchor="middle">gabriel@dev:~$ exit</text>
+</svg>
