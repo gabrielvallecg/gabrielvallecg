@@ -229,22 +229,6 @@ def card(name, path, status, desc, tags, foot, preview, extra=""):
     return block(h, "", fade(pv, 0) + fade("".join(g), 1), label, bar=False)
 
 
-def crm_placeholder():
-    """Sem captura pública (área logada): painel ilustrativo, sinalizado como tal."""
-    x, y = 50, 36
-    rows = [("novo", "Barbearia Centro", "sem_site"), ("novo", "Pet Shop Ana", "quebrado"),
-            ("contatado", "Oficina JR", "so_redes"), ("fechado", "Studio Nails", "funcional")]
-    g = (f'<rect x="{x}" y="{y}" width="440" height="248" rx="12" fill="{CARD}" stroke="{LINE}"/>'
-         + t(x + 20, y + 32, "lista Contatar", 16, TXT, 600)
-         + t(x + 420, y + 32, "ilustrativo", 12, FAINT, anchor="end"))
-    for i, (st, nome, site) in enumerate(rows):
-        yy = y + 62 + i * 44
-        g += (f'<rect x="{x + 16}" y="{yy}" width="408" height="34" rx="8" fill="{BG}" stroke="{LINE}"/>'
-              + t(x + 30, yy + 22, nome, 13, TXT) + t(x + 250, yy + 22, site, 12, MUTED)
-              + t(x + 410, yy + 22, st, 12, RED_L if st == "fechado" else MUTED, anchor="end"))
-    return g
-
-
 STACK = [
     ("IA & Automação", ["Claude API", "OpenAI API", "RAG", "LangChain", "n8n", "Webhooks"]),
     ("Front-end", ["React", "Next.js", "TypeScript", "Tailwind CSS", "Framer Motion", "Three.js"]),
@@ -276,9 +260,6 @@ PROJECTS = [
     ("santos-barber", "Santos Barber Studio", ("No ar", True),
      "Site da barbearia em Resende, RJ: serviços com preço e duração, aviso de aberto agora, mapa com rota, avaliações com login e agendamento pelo WhatsApp.",
      ["Site institucional", "SEO local", "WhatsApp"], "projeto para cliente · santosbarberstudios.com"),
-    ("crm-leads", "CRM de Leads", ("Em produção", True),
-     "CRM de prospecção: importa negócios do Google Maps, verifica site e Instagram de cada um e monta a lista de quem contatar, com funil e exportação em XLSX.",
-     ["Next.js", "Supabase", "TypeScript"], "repositório privado · área logada"),
     ("controle-de-caixa", "Controle de Caixa", ("Entregue", False),
      "Lançamento do dia por contadores, cadastro de serviços e painel que calcula faturamento, despesas e lucro, com relatórios por qualquer período.",
      ["Sistema web", "Dashboard", "Relatórios"], "projeto para cliente · código privado"),
@@ -352,9 +333,7 @@ if __name__ == "__main__":
     for k, *p in FACULDADE:
         files[f"faculdade-{k}.svg"] = card(*p[:1], f"faculdade / {k}", *p[1:], preview=k)
     for i, (k, *p) in enumerate(PROJECTS):
-        files[f"project-{k}.svg"] = card(*p[:1], f"gabrielvallecg / {k}", *p[1:],
-                                         preview=None if k == "crm-leads" else k,
-                                         extra=crm_placeholder() if k == "crm-leads" else "")
+        files[f"project-{k}.svg"] = card(*p[:1], f"gabrielvallecg / {k}", *p[1:], preview=k)
     for n, s in files.items():
         (OUT / n).write_text(s, encoding="utf-8")
     print(len(files), "arquivos em", OUT)

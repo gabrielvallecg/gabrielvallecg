@@ -45,10 +45,6 @@ Manutenção e suporte em computadores; atendimento ao cliente e suporte interno
 <sub>Santos Barber Studio: <a href="https://santosbarberstudios.com">Site no ar</a> · <a href="https://gabrielvallecg.github.io/projetos/santos-barber-studio">Case</a></sub>
 </div>
 <div align="center">
-<a href="https://crm-leads-crm-fbd2.vercel.app"><img src="assets/project-crm-leads.svg" alt="CRM de Leads — em produção. Importa negócios do Google Maps, verifica site e Instagram e monta a lista de quem contatar." width="100%"></a>
-<sub>CRM de Leads: repositório privado · <a href="https://crm-leads-crm-fbd2.vercel.app">Produção</a></sub>
-</div>
-<div align="center">
 <a href="https://gabrielvallecg.github.io/projetos/controle-de-caixa"><img src="assets/project-controle-de-caixa.svg" alt="Controle de Caixa — entregue. Lançamento diário, painel e relatórios de faturamento, despesas e lucro." width="100%"></a>
 <sub>Controle de Caixa: código privado · <a href="https://gabrielvallecg.github.io/projetos/controle-de-caixa">Case</a></sub>
 </div>
