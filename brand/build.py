@@ -13,7 +13,7 @@ W = 1280
 MONO = "'JetBrains Mono', 'SF Mono', Consolas, Menlo, 'DejaVu Sans Mono', monospace"
 # grafite suave e tons quentes; o vermelho é só detalhe
 BG, BAR, LINE, CARD = "#1A1C21", "#202328", "#30333A", "#23262C"
-RED, RED_L, RED_D = "#E07070", "#EBA3A0", "#5E3A3C"
+RED, RED_L, RED_D = "#E86262", "#F09C98", "#6A3537"
 TXT, MUTED, DIM, FAINT = "#ECE8E3", "#B1B3B8", "#42454C", "#80838A"
 
 # link do Água Limpa (repositório do Pedro, ainda privado)

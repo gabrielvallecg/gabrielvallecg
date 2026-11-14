@@ -44,17 +44,14 @@ Manutenção e suporte em computadores; atendimento ao cliente e suporte interno
 <a href="https://santosbarberstudios.com"><img src="assets/project-santos-barber.svg" alt="Santos Barber Studio — no ar. Site da barbearia com serviços, horários em tempo real, mapa, avaliações e agendamento pelo WhatsApp." width="100%"></a>
 <sub>Santos Barber Studio: <a href="https://santosbarberstudios.com">Site no ar</a> · <a href="https://gabrielvallecg.github.io/projetos/santos-barber-studio">Case</a></sub>
 </div>
-<br>
 <div align="center">
 <a href="https://crm-leads-crm-fbd2.vercel.app"><img src="assets/project-crm-leads.svg" alt="CRM de Leads — em produção. Importa negócios do Google Maps, verifica site e Instagram e monta a lista de quem contatar." width="100%"></a>
 <sub>CRM de Leads: repositório privado · <a href="https://crm-leads-crm-fbd2.vercel.app">Produção</a></sub>
 </div>
-<br>
 <div align="center">
 <a href="https://gabrielvallecg.github.io/projetos/controle-de-caixa"><img src="assets/project-controle-de-caixa.svg" alt="Controle de Caixa — entregue. Lançamento diário, painel e relatórios de faturamento, despesas e lucro." width="100%"></a>
 <sub>Controle de Caixa: código privado · <a href="https://gabrielvallecg.github.io/projetos/controle-de-caixa">Case</a></sub>
 </div>
-<br>
 <div align="center">
 <a href="https://gabrielvallecg.github.io"><img src="assets/project-site-pessoal.svg" alt="Site pessoal — publicado. Portfólio com cases, stack e serviços." width="100%"></a>
 <sub>Site pessoal: <a href="https://gabrielvallecg.github.io">gabrielvallecg.github.io</a></sub>
@@ -68,7 +65,6 @@ Manutenção e suporte em computadores; atendimento ao cliente e suporte interno
 <a href="https://github.com/gabrielvallecg/barberflow"><img src="assets/faculdade-barberflow.svg" alt="BarberFlow — no ar na AWS. Agendamento online para barbearias em EC2, S3 e IAM, com Node.js e SQLite." width="100%"></a>
 <sub>BarberFlow: <a href="https://github.com/gabrielvallecg/barberflow">Case completo: arquitetura na AWS e telas</a></sub>
 </div>
-<br>
 <div align="center">
 <a href="https://github.com/Pedro-Osaka/projeto-agua"><img src="assets/faculdade-agua-limpa.svg" alt="Água Limpa, Vida Sustentável — concluído. Projeto de extensão com a SANEAR: site de conscientização, filtro de garrafa PET e ações com a comunidade." width="100%"></a>
 <sub>Água Limpa, Vida Sustentável: <a href="https://github.com/Pedro-Osaka/projeto-agua">Repositório</a></sub>
