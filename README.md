@@ -66,9 +66,15 @@ Manutenção e suporte em computadores; atendimento ao cliente e suporte interno
 <sub>Água Limpa, Vida Sustentável: <a href="https://github.com/Pedro-Osaka/projeto-agua">Repositório</a></sub>
 </div>
 
+## Certificações
+
+<p align="center">
+<picture><img src="assets/cert-cisco-cybersecurity.svg" alt="Introdução à Cibersegurança — Cisco Networking Academy — concluído em abr/2026" width="49%"></picture>
+</p>
+
 ## Tech Stack
 
-<picture><img src="assets/stack.svg" alt="Tech Stack. IA e Automação: Claude API, OpenAI API, RAG, LangChain, n8n, Webhooks. Front-end: React, Next.js, TypeScript, Tailwind CSS, Framer Motion, Three.js. Back-end e Dados: Node.js, Python, PostgreSQL, SQLite, Supabase, Prisma. Cloud e Entrega: AWS (EC2, S3, IAM), Vercel, Docker, Git e GitHub, CI/CD, Cloudflare. UI/UX: Figma, Design System, Acessibilidade, Responsivo." width="100%"></picture>
+<picture><img src="assets/stack.svg" alt="Tech Stack. IA e Automação: Claude, OpenAI, LangChain, n8n, RAG, Webhooks. Front-end: React, Next.js, TypeScript, JavaScript, HTML, CSS, Tailwind, Framer, Three.js. Back-end e Dados: Node.js, Python, PostgreSQL, SQLite, Supabase, Prisma. Cloud e Entrega: AWS, Vercel, Docker, Cloudflare, Git, GitHub, GitHub Actions. UI/UX: Figma, Design System, Acessibilidade, Responsivo." width="100%"></picture>
 
 <br>
 

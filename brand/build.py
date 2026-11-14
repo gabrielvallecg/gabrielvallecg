@@ -229,22 +229,90 @@ def card(name, path, status, desc, tags, foot, preview, extra=""):
     return block(h, "", fade(pv, 0) + fade("".join(g), 1), label, bar=False)
 
 
+# (rótulo, ícone em brand/icons ou None, cor para ícones de uma cor só / monograma)
 STACK = [
-    ("IA & Automação", ["Claude API", "OpenAI API", "RAG", "LangChain", "n8n", "Webhooks"]),
-    ("Front-end", ["React", "Next.js", "TypeScript", "Tailwind CSS", "Framer Motion", "Three.js"]),
-    ("Back-end & Dados", ["Node.js", "Python", "PostgreSQL", "SQLite", "Supabase", "Prisma"]),
-    ("Cloud & Entrega", ["AWS (EC2, S3, IAM)", "Vercel", "Docker", "Git & GitHub", "CI/CD", "Cloudflare"]),
-    ("UI/UX", ["Figma", "Design System", "Acessibilidade", "Responsivo"]),
+    ("IA & Automação", [("Claude", "si-claude", "#D97757"), ("OpenAI", "si-openai", TXT),
+                        ("LangChain", "si-langchain", TXT), ("n8n", "si-n8n", "#EA4B71"),
+                        ("RAG", None, "RAG"), ("Webhooks", None, "{ }")]),
+    ("Front-end", [("React", "react", None), ("Next.js", "nextjs", TXT), ("TypeScript", "typescript", None),
+                   ("JavaScript", "javascript", None), ("HTML", "html5", None), ("CSS", "css3", None),
+                   ("Tailwind", "tailwindcss", None), ("Framer", "si-framer", TXT), ("Three.js", "threejs", TXT)]),
+    ("Back-end & Dados", [("Node.js", "nodejs", None), ("Python", "python", None), ("PostgreSQL", "postgresql", None),
+                          ("SQLite", "sqlite", None), ("Supabase", "supabase", None), ("Prisma", "prisma", TXT)]),
+    ("Cloud & Entrega", [("AWS", "amazonwebservices", None), ("Vercel", "vercel", TXT), ("Docker", "docker", None),
+                         ("Cloudflare", "cloudflare", None), ("Git", "git", None), ("GitHub", "github", TXT),
+                         ("Actions", "si-githubactions", "#2088FF")]),
+    ("UI/UX", [("Figma", "figma", None), ("Design Sys.", None, "DS"), ("Acessib.", None, "A11Y"),
+               ("Responsivo", None, "RWD")]),
 ]
+
+DARK = ("#181616", "#000000", "#000", "#2d3748", "#252f3e", "#232f3e", "#1c3c3c")
+
+
+def icon(name, x, y, size, color, uid):
+    """Logotipo de brand/icons como <svg> aninhado. Ícones de uma cor recebem `color`; preto vira texto claro."""
+    import re
+    src = (ROOT / "icons" / f"{name}.svg").read_text(encoding="utf-8")
+    vb = re.search(r'viewBox="([^"]+)"', src).group(1)
+    inner = re.sub(r"^.*?<svg[^>]*>|</svg>\s*$|<title>.*?</title>", "", src, flags=re.S)
+    inner = re.sub(r'id="([^"]+)"', rf'id="{uid}-\1"', inner)
+    inner = re.sub(r'url\(#([^)]+)\)', rf'url(#{uid}-\1)', inner)
+    inner = re.sub(r'href="#([^"]+)"', rf'href="#{uid}-\1"', inner)
+    if color:
+        for d in DARK:
+            inner = re.sub(re.escape(d) + r'(?![0-9a-fA-F])', color, inner, flags=re.I)
+    return (f'<svg x="{x}" y="{y}" width="{size}" height="{size}" viewBox="{vb}">'
+            f'<g fill="{color or TXT}">{inner}</g></svg>')
 
 
 def stack():
-    body, y = [], 70
-    for i, (title, items) in enumerate(STACK):
-        body.append(fade(t(50, y + 20, f"./{title}", 17, TXT, 600) + chips(50, y + 34, items), i))
-        y += 90
-    label = "Tech Stack. " + " ".join(f"{g}: {', '.join(i)}." for g, i in STACK)
-    return block(y + 10, "ls stack/", "\n".join(body), label)
+    tw, th, gap = 112, 104, 14
+    body, y = [], 64
+    for r, (title, items) in enumerate(STACK):
+        if r:
+            body.append(f'<path d="M30 {y - 14}H{W - 30}" stroke="{LINE}"/>')
+        g = t(50, y + 14, title, 14, FAINT)
+        y += 28
+        for k, (label, ic, col) in enumerate(items):
+            x = 50 + k * (tw + gap)
+            g += f'<rect x="{x}" y="{y}" width="{tw}" height="{th}" rx="12" fill="{CARD}" stroke="{LINE}"/>'
+            if ic:
+                g += icon(ic, x + tw / 2 - 20, y + 16, 40, col, f"i{r}{k}")
+            else:
+                g += t(x + tw / 2, y + 44, col, 20 if len(col) < 4 else 17, RED_L, 700, "middle")
+            g += t(x + tw / 2, y + th - 16, label, 13, TXT, 600, "middle")
+        body.append(fade(g, r))
+        y += th + 34
+    label = "Tech Stack. " + " ".join(f"{g}: {', '.join(n for n, _, _ in i)}." for g, i in STACK)
+    return block(y - 10, "ls stack/", "\n".join(body), label)
+
+
+# (arquivo, título, emissor, detalhe, ícone, cor do ícone, rodapé)
+CERTS = [
+    ("cisco-cybersecurity", "Introdução à Cibersegurança", "Cisco Networking Academy", "concluído em abr/2026",
+     "si-cisco", "#1BA0D7", "Cert ID 06ee2162 · certificado em PDF"),
+]
+
+
+def cert(title, issuer, detail, ic, col, foot):
+    w, h = 620, 190
+    lines = wrap(title, 30)
+    g = (f'<rect x="28" y="30" width="72" height="72" rx="14" fill="{CARD}" stroke="{LINE}"/>'
+         + icon(ic, 44, 46, 40, col, "c"))
+    y = 54
+    for ln in lines:
+        g += t(124, y, ln, 22, TXT, 700)
+        y += 28
+    g += t(124, y + 2, issuer, 16, MUTED) + t(124, y + 26, detail, 15, FAINT)
+    g += f'<path d="M28 {h - 44}H{w - 28}" stroke="{LINE}"/>' + t(28, h - 18, f"▸ {foot}", 14, FAINT)
+    a = escape(f"{title} — {issuer} — {detail} — {foot}", {'"': "&quot;"})
+    return f'''<svg xmlns="http://www.w3.org/2000/svg" width="{w}" height="{h}" viewBox="0 0 {w} {h}" role="img" aria-label="{a}">
+<title>{a}</title>
+<rect x="1" y="1" width="{w - 2}" height="{h - 2}" rx="16" fill="{BG}" stroke="{LINE}" stroke-width="2"/>
+<rect x="1" y="16" width="5" height="{h - 32}" fill="{RED}"/>
+{fade(g, 0)}
+</svg>
+'''
 
 
 FACULDADE = [
@@ -334,6 +402,8 @@ if __name__ == "__main__":
         files[f"faculdade-{k}.svg"] = card(*p[:1], f"faculdade / {k}", *p[1:], preview=k)
     for i, (k, *p) in enumerate(PROJECTS):
         files[f"project-{k}.svg"] = card(*p[:1], f"gabrielvallecg / {k}", *p[1:], preview=k)
+    for k, *c in CERTS:
+        files[f"cert-{k}.svg"] = cert(*c)
     for n, s in files.items():
         (OUT / n).write_text(s, encoding="utf-8")
     print(len(files), "arquivos em", OUT)
