@@ -1,5 +1,9 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="420" height="40" viewBox="0 0 420 40" role="img" aria-label="Fim do perfil">
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="100" viewBox="0 0 1280 100" role="img" aria-label="Fim do perfil">
 <title>Fim do perfil</title>
-<path d="M0 20H150M270 20H420" stroke="#7A1416"/>
-<text x="210" y="26" font-family="'JetBrains Mono', 'SF Mono', Consolas, Menlo, 'DejaVu Sans Mono', monospace" font-size="15" font-weight="400" fill="#E5383B" text-anchor="middle">gabriel@dev:~$ exit</text>
+<defs><clipPath id="c"><path d="M0 0H1280Q1280 0 1280 0V80Q1280 100 1260 100H20Q0 100 0 80V0Q0 0 0 0Z"/></clipPath>
+<linearGradient id="rail" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FF4D5E"/><stop offset=".5" stop-color="#FF8C97"/><stop offset="1" stop-color="#FF4D5E"/>
+<animate attributeName="y2" values="1;2;1" dur="6s" repeatCount="indefinite"/></linearGradient></defs>
+<g clip-path="url(#c)"><rect width="1280" height="100" fill="#0B0A0C"/><path d="M0 .5H1280" stroke="#2A1C20"/><rect width="8" height="100" fill="url(#rail)"/></g>
+
+<g><text x="640.0" y="62" font-family="'JetBrains Mono', 'SF Mono', Consolas, Menlo, 'DejaVu Sans Mono', monospace" font-size="16" font-weight="400" fill="#FF4D5E" text-anchor="middle">gabriel@dev:~$ exit</text><path d="M380 56H520M760 56H900" stroke="#5C1F28"/><animate attributeName="opacity" values="0;0;1" keyTimes="0;0.000;1" dur="0.70s" fill="freeze"/><animateTransform attributeName="transform" type="translate" values="0 10;0 10;0 0" keyTimes="0;0.000;1" dur="0.70s" calcMode="spline" keySplines="0 0 1 1;.2 .7 .3 1" fill="freeze"/></g>
 </svg>
