@@ -405,7 +405,7 @@ if __name__ == "__main__":
     for i, (k, *p) in enumerate(PROJECTS):
         files[f"project-{k}.svg"] = card(*p[:1], f"gabrielvallecg / {k}", *p[1:], preview=k)
     for k, *c in CERTS:
-        files[f"cert-{k}.svg"] = cert(*c)
+        files[f"certificado-{k}.svg"] = cert(*c)
     for n, s in files.items():
         (OUT / n).write_text(s, encoding="utf-8")
     print(len(files), "arquivos em", OUT)
