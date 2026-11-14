@@ -3,6 +3,7 @@
 <br>
 <a href="https://gabrielvallecg.github.io"><img src="assets/btn-portfolio.svg" alt="Portfólio" height="42"></a>
 <a href="https://gabrielvallecg.github.io/projetos/"><img src="assets/btn-projetos.svg" alt="Ver a visão geral dos projetos" height="42"></a>
+<a href="assets/curriculo-gabriel-do-valle.pdf"><img src="assets/btn-curriculo.svg" alt="Currículo em PDF" height="42"></a>
 <a href="mailto:gabrieldovalle2007@gmail.com"><img src="assets/btn-email.svg" alt="E-mail: gabrieldovalle2007@gmail.com" height="42"></a>
 <br><br>
 <picture><img src="assets/perfil.svg" alt="Perfil. Atuação: desenvolvedor web autônomo. Formação: Sistemas de Informação, 4º período, UniDomBosco (AEDB). Foco: IA aplicada a processos. Entrega: da arquitetura ao deploy." width="100%"></picture>
