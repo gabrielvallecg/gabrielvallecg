@@ -1,4 +1,4 @@
-"""Gera os SVGs do perfil (tema preto e vermelho claro). Rode: python brand/build.py
+"""Gera os SVGs do perfil (grafite suave com detalhes em vermelho). Rode: python brand/build.py
 
 Os blocos têm 1280 px de largura e são empilhados colados no README:
 o primeiro de cada coluna tem cantos arredondados em cima, o último embaixo.
@@ -12,9 +12,10 @@ ROOT = Path(__file__).resolve().parent
 OUT = ROOT.parent / "assets"
 W = 1280
 MONO = "'JetBrains Mono', 'SF Mono', Consolas, Menlo, 'DejaVu Sans Mono', monospace"
-BG, BAR, LINE, CARD = "#0B0A0C", "#141115", "#2A1C20", "#151014"
-RED, RED_L, RED_D = "#FF4D5E", "#FF8C97", "#5C1F28"
-TXT, MUTED, DIM, FAINT = "#F4F1F2", "#ABA4A7", "#3A2B30", "#76686D"
+# grafite suave e tons quentes; o vermelho é só detalhe
+BG, BAR, LINE, CARD = "#1A1C21", "#202328", "#30333A", "#23262C"
+RED, RED_L, RED_D = "#E07070", "#EBA3A0", "#5E3A3C"
+TXT, MUTED, DIM, FAINT = "#ECE8E3", "#B1B3B8", "#42454C", "#80838A"
 
 # link do Água Limpa (repositório do Pedro, ainda privado)
 AGUA_URL = "https://github.com/Pedro-Osaka/projeto-agua"
@@ -71,9 +72,9 @@ def block(h, title, body, label, top=False, bottom=False, bar=True):
     return f'''<svg xmlns="http://www.w3.org/2000/svg" width="{W}" height="{h}" viewBox="0 0 {W} {h}" role="img" aria-label="{a}">
 <title>{a}</title>
 <defs><clipPath id="c"><path d="{p}"/></clipPath>
-<linearGradient id="rail" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="{RED}"/><stop offset=".5" stop-color="{RED_L}"/><stop offset="1" stop-color="{RED}"/>
+<linearGradient id="rail" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="{RED_D}"/><stop offset=".5" stop-color="{RED}"/><stop offset="1" stop-color="{RED_D}"/>
 <animate attributeName="y2" values="1;2;1" dur="6s" repeatCount="indefinite"/></linearGradient></defs>
-<g clip-path="url(#c)"><rect width="{W}" height="{h}" fill="{BG}"/>{head}{edge}<rect width="8" height="{h}" fill="url(#rail)"/></g>
+<g clip-path="url(#c)"><rect width="{W}" height="{h}" fill="{BG}"/>{head}{edge}<rect width="5" height="{h}" fill="url(#rail)"/></g>
 {dots}
 {body}
 </svg>
@@ -104,15 +105,15 @@ def img64(name):
 def banner():
     h = 420
     body = [
-        f'<defs><radialGradient id="g" cx="85%" cy="30%" r="65%"><stop offset="0" stop-color="{RED}" stop-opacity=".28">'
-        f'<animate attributeName="stop-opacity" values=".28;.16;.28" dur="7s" repeatCount="indefinite"/></stop>'
+        f'<defs><radialGradient id="g" cx="85%" cy="30%" r="65%"><stop offset="0" stop-color="{RED}" stop-opacity=".14">'
+        f'<animate attributeName="stop-opacity" values=".14;.08;.14" dur="7s" repeatCount="indefinite"/></stop>'
         f'<stop offset="1" stop-color="{RED}" stop-opacity="0"/></radialGradient>'
-        f'<pattern id="p" width="32" height="32" patternUnits="userSpaceOnUse"><path d="M32 0H0V32" fill="none" stroke="#19131A"/></pattern></defs>',
+        f'<pattern id="p" width="32" height="32" patternUnits="userSpaceOnUse"><path d="M32 0H0V32" fill="none" stroke="#22252B"/></pattern></defs>',
         f'<rect x="8" y="49" width="{W-8}" height="{h-49}" fill="url(#p)"/>',
         f'<rect x="8" y="49" width="{W-8}" height="{h-49}" fill="url(#g)"/>',
-        fade(t(70, 130, "> whoami", 20, RED), 0),
+        fade(t(70, 130, "> whoami", 20, FAINT), 0),
         fade(t(70, 205, "Gabriel do Valle", 64, TXT, 700), 1),
-        fade(t(70, 255, "IA · Automação · Desenvolvimento Web", 26, RED_L), 2),
+        fade(t(70, 255, "IA · Automação · Desenvolvimento Web", 26, MUTED), 2),
         fade(t(70, 300, "Transformo processos manuais em sistemas.", 20, MUTED), 3),
     ]
     x, cs = 70, []
@@ -123,7 +124,7 @@ def banner():
         x += w + 12
     body.append(fade("".join(cs), 4))
     body.append(fade(
-        f'<rect x="1010" y="110" width="200" height="200" rx="30" fill="{CARD}" stroke="{RED_D}" stroke-width="2"/>'
+        f'<rect x="1010" y="110" width="200" height="200" rx="30" fill="{CARD}" stroke="{LINE}" stroke-width="2"/>'
         + t(1110, 238, "GV", 84, RED, 700, "middle")
         + f'<rect x="1098" y="262" width="24" height="5" fill="{RED}">'
           '<animate attributeName="opacity" values="1;0;1" dur="1.2s" repeatCount="indefinite"/></rect>', 2))
@@ -134,10 +135,10 @@ def banner():
 
 def button(label, icon_path, filled=True):
     w = int(len(label) * 13 * 0.62 + 76)
-    bg, fg = (RED, "#FFFFFF") if filled else (BG, RED_L)
+    bg, fg = (RED, "#FFFFFF") if filled else (CARD, TXT)
     return f'''<svg xmlns="http://www.w3.org/2000/svg" width="{w}" height="42" viewBox="0 0 {w} 42" role="img" aria-label="{label}">
 <title>{label}</title>
-<rect x=".5" y=".5" width="{w-1}" height="41" rx="10" fill="{bg}" stroke="{RED}"/>
+<rect x=".5" y=".5" width="{w-1}" height="41" rx="10" fill="{bg}" stroke="{RED if filled else LINE}"/>
 <svg x="20" y="12" width="18" height="18" viewBox="0 0 24 24"><path fill="none" stroke="{fg}" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="{icon_path}"/></svg>
 {t(48, 26, label.upper(), 13, fg, 600, extra=' letter-spacing="1.2"')}
 </svg>
@@ -146,9 +147,8 @@ def button(label, icon_path, filled=True):
 
 ICONS = {
     "portfolio": ("Portfólio", "M12 2a10 10 0 100 20 10 10 0 000-20zM2 12h20M12 2a15 15 0 010 20M12 2a15 15 0 000 20", True),
-    "projetos": ("Ver projetos", "M3 7h7l2 2h9v10H3zM3 7V5h6l2 2", True),
+    "projetos": ("Ver projetos", "M3 7h7l2 2h9v10H3zM3 7V5h6l2 2", False),
     "email": ("E-mail", "M3 5h18v14H3zM3 5l9 8 9-8", False),
-    "partyhub": ("Party Hub", "M6 11h4M8 9v4M15 12h.01M18 10h.01M17.3 5H6.7a4 4 0 00-4 3.6L2 15a3 3 0 005.2 2l1.3-2h7l1.3 2a3 3 0 005.2-2l-.7-6.4A4 4 0 0017.3 5z", False),
 }
 
 
@@ -165,7 +165,7 @@ def perfil():
     for i, (k, v, sub) in enumerate(cells):
         x, y = 50 + (i % 2) * (cw + 16), 68 + (i // 2) * 106
         body.append(fade(f'<rect x="{x}" y="{y}" width="{cw}" height="90" rx="12" fill="{CARD}" stroke="{LINE}"/>'
-                         + t(x + 20, y + 25, "$", fill=RED) + t(x + 39, y + 25, k, fill=RED_L)
+                         + t(x + 20, y + 25, "$", fill=RED) + t(x + 39, y + 25, k, fill=MUTED)
                          + t(x + 20, y + 53, v, 22) + t(x + 20, y + 75, sub, fill=MUTED), i))
     label = "Perfil. " + "; ".join(f"{k}: {v} ({s})" for k, v, s in cells)
     return block(68 + 2 * 106 + 18, "cat perfil", "\n".join(body), label, top=True)
@@ -183,13 +183,13 @@ EXPERIENCE = [
 
 def experience():
     body, y = [], 78
-    body.append(f'<path d="M66 {y + 10}V{y + 3 * 112 - 50}" stroke="{RED_D}" stroke-width="2" stroke-dasharray="4 6"/>')
+    body.append(f'<path d="M66 {y + 10}V{y + 3 * 112 - 50}" stroke="{DIM}" stroke-width="2" stroke-dasharray="4 6"/>')
     for i, (period, role, org, desc) in enumerate(EXPERIENCE):
         lines = wrap(desc, 100)
         g = (f'<circle cx="66" cy="{y + 8}" r="8" fill="{BG}" stroke="{RED}" stroke-width="2"/>'
              f'<circle cx="66" cy="{y + 8}" r="3" fill="{RED}"/>'
              + t(96, y + 15, role, 22, TXT, 700)
-             + t(96 + len(role) * 22 * 0.6 + 16, y + 15, f"· {org}", 18, RED_L)
+             + t(96 + len(role) * 22 * 0.6 + 16, y + 15, f"· {org}", 18, MUTED)
              + t(1230, y + 15, period, 15, FAINT, anchor="end"))
         for j, ln in enumerate(lines):
             g += t(96, y + 44 + j * 24, ln, 16, MUTED)
@@ -204,14 +204,14 @@ def section_head(title, cmd, note):
     return block(160, cmd, body, f"{title}. {note}")
 
 
-def card(name, cmd, status, desc, tags, foot, preview, bottom=False, extra=""):
-    """Card de projeto com prévia à esquerda."""
+def card(name, path, status, desc, tags, foot, preview, bottom=False, extra=""):
+    """Projeto sem moldura: prévia à esquerda, texto à direita, linha fina separando do próximo."""
     lines = wrap(desc, 62)
-    text_h = 120 + len(lines) * 26 + 34 + 70
-    h = max(text_h, 56 + 248 + 46) + 10
+    py = 36
+    h = max(py + 92 + len(lines) * 26 + 100, py + 248 + 36)
     stext, filled = status
-    sw = len(stext) * 14 * 0.6 + 42
-    px, py = 50, 72
+    sw = len(stext) * 13 * 0.6 + 40
+    px = 50
     if preview:
         pv = (f'<clipPath id="pv"><rect x="{px}" y="{py}" width="440" height="248" rx="12"/></clipPath>'
               f'<image href="{img64(preview)}" x="{px}" y="{py}" width="440" height="248" clip-path="url(#pv)" preserveAspectRatio="xMidYMin slice"/>'
@@ -219,33 +219,34 @@ def card(name, cmd, status, desc, tags, foot, preview, bottom=False, extra=""):
     else:
         pv = extra
     tx = 524
-    g = [t(tx, 105, name, 28, TXT, 700),
-         f'<rect x="{1230 - sw:.0f}" y="80" width="{sw:.0f}" height="32" rx="16" fill="{RED if filled else "none"}" stroke="{RED}"/>',
-         f'<circle cx="{1230 - sw + 19:.0f}" cy="96" r="4.5" fill="{"#FFF" if filled else RED}"/>',
-         t(1230 - sw + 30, 101, stext, 14, "#FFF" if filled else RED_L, 600)]
-    y = 145
+    g = [t(tx, py + 16, path, 14, FAINT),
+         t(tx, py + 56, name, 30, TXT, 700),
+         f'<rect x="{1230 - sw:.0f}" y="{py}" width="{sw:.0f}" height="28" rx="14" fill="{CARD}" stroke="{RED_D if filled else LINE}"/>',
+         f'<circle cx="{1230 - sw + 17:.0f}" cy="{py + 14}" r="4" fill="{RED if filled else FAINT}"/>',
+         t(1230 - sw + 28, py + 19, stext.upper(), 13, RED_L if filled else MUTED, 600)]
+    y = py + 92
     for ln in lines:
         g.append(t(tx, y, ln, 17, MUTED))
         y += 26
-    g.append(chips(tx, y + 4, tags, color=RED_L, stroke=RED_D, size=14))
-    g.append(t(tx, y + 70, f"# {foot}", 14, FAINT))
+    g.append(chips(tx, y + 2, tags, size=14))
+    g.append(t(tx, y + 64, f"▸ {foot}", 14, FAINT))
     label = f"{name} — {stext}. {desc} Tecnologias: {', '.join(tags)}. {foot}."
-    return block(h, cmd, fade(pv, 0) + fade("".join(g), 1), label, bottom=bottom)
+    return block(h, "", fade(pv, 0) + fade("".join(g), 1), label, bottom=bottom, bar=False)
 
 
 def crm_placeholder():
     """Sem captura pública (área logada): painel ilustrativo, sinalizado como tal."""
-    x, y = 50, 72
+    x, y = 50, 36
     rows = [("novo", "Barbearia Centro", "sem_site"), ("novo", "Pet Shop Ana", "quebrado"),
             ("contatado", "Oficina JR", "so_redes"), ("fechado", "Studio Nails", "funcional")]
     g = (f'<rect x="{x}" y="{y}" width="440" height="248" rx="12" fill="{CARD}" stroke="{LINE}"/>'
-         + t(x + 20, y + 32, "lista Contatar", 16, RED_L, 600)
+         + t(x + 20, y + 32, "lista Contatar", 16, TXT, 600)
          + t(x + 420, y + 32, "ilustrativo", 12, FAINT, anchor="end"))
     for i, (st, nome, site) in enumerate(rows):
         yy = y + 62 + i * 44
         g += (f'<rect x="{x + 16}" y="{yy}" width="408" height="34" rx="8" fill="{BG}" stroke="{LINE}"/>'
               + t(x + 30, yy + 22, nome, 13, TXT) + t(x + 250, yy + 22, site, 12, MUTED)
-              + t(x + 410, yy + 22, st, 12, RED if st != "fechado" else RED_L, anchor="end"))
+              + t(x + 410, yy + 22, st, 12, RED_L if st == "fechado" else MUTED, anchor="end"))
     return g
 
 
@@ -261,7 +262,7 @@ STACK = [
 def stack():
     body, y = [], 70
     for i, (title, items) in enumerate(STACK):
-        body.append(fade(t(50, y + 20, f"./{title}", 17, RED_L, 600) + chips(50, y + 34, items), i))
+        body.append(fade(t(50, y + 20, f"./{title}", 17, TXT, 600) + chips(50, y + 34, items), i))
         y += 90
     label = "Tech Stack. " + " ".join(f"{g}: {', '.join(i)}." for g, i in STACK)
     return block(y + 10, "ls stack/", "\n".join(body), label)
@@ -283,9 +284,6 @@ PROJECTS = [
     ("crm-leads", "CRM de Leads", ("Em produção", True),
      "CRM de prospecção: importa negócios do Google Maps, verifica site e Instagram de cada um e monta a lista de quem contatar, com funil e exportação em XLSX.",
      ["Next.js", "Supabase", "TypeScript"], "repositório privado · área logada"),
-    ("party-hub", "Party Hub", ("Publicado", True),
-     "Jogos de festa no celular, sem instalar nada: O Impostor, Palavras!, Ache Sua Dupla e Mímica. As partidas rodam direto entre os aparelhos.",
-     ["JavaScript", "WebRTC", "PeerJS"], "código aberto · jogue no navegador"),
     ("controle-de-caixa", "Controle de Caixa", ("Entregue", False),
      "Lançamento do dia por contadores, cadastro de serviços e painel que calcula faturamento, despesas e lucro, com relatórios por qualquer período.",
      ["Sistema web", "Dashboard", "Relatórios"], "projeto para cliente · código privado"),
@@ -358,9 +356,9 @@ if __name__ == "__main__":
     }
     files |= {f"btn-{k}.svg": button(*v) for k, v in ICONS.items()}
     for k, *p in FACULDADE:
-        files[f"faculdade-{k}.svg"] = card(*p[:1], f"cat faculdade/{k}.md", *p[1:], preview=k)
+        files[f"faculdade-{k}.svg"] = card(*p[:1], f"faculdade / {k}", *p[1:], preview=k)
     for i, (k, *p) in enumerate(PROJECTS):
-        files[f"project-{k}.svg"] = card(*p[:1], f"cat projetos/{k}.md", *p[1:],
+        files[f"project-{k}.svg"] = card(*p[:1], f"gabrielvallecg / {k}", *p[1:],
                                          preview=None if k == "crm-leads" else k,
                                          extra=crm_placeholder() if k == "crm-leads" else "")
     for n, s in files.items():
