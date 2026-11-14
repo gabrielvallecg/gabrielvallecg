@@ -289,13 +289,15 @@ def stack():
 
 # (arquivo, título, emissor, detalhe, ícone, cor do ícone, rodapé)
 CERTS = [
+    ("aws-cloud-foundations", "AWS Academy Graduate – Cloud Foundations", "Amazon Web Services · AWS Academy",
+     "emitido em nov/2026", "amazonwebservices", TXT, "verificável no Credly · clique para abrir"),
     ("cisco-cybersecurity", "Introdução à Cibersegurança", "Cisco Networking Academy", "concluído em abr/2026",
      "si-cisco", "#1BA0D7", "Cert ID 06ee2162 · certificado em PDF"),
 ]
 
 
 def cert(title, issuer, detail, ic, col, foot):
-    w, h = 620, 190
+    w, h = 620, 218
     lines = wrap(title, 30)
     g = (f'<rect x="28" y="30" width="72" height="72" rx="14" fill="{CARD}" stroke="{LINE}"/>'
          + icon(ic, 44, 46, 40, col, "c"))
