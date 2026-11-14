@@ -1,11 +1,11 @@
 <div align="center">
-<img src="assets/banner.svg" alt="Gabriel do Valle. IA, automação e desenvolvimento web. Resende, RJ. Full-stack. Sistemas de Informação, 4º período. Disponível para projetos." width="100%">
+<picture><img src="assets/banner.svg" alt="Gabriel do Valle. IA, automação e desenvolvimento web. Resende, RJ. Full-stack. Sistemas de Informação, 4º período. Disponível para projetos." width="100%"></picture>
 <br>
 <a href="https://gabrielvallecg.github.io"><img src="assets/btn-portfolio.svg" alt="Portfólio" height="42"></a>
 <a href="https://gabrielvallecg.github.io/projetos/"><img src="assets/btn-projetos.svg" alt="Ver a visão geral dos projetos" height="42"></a>
 <a href="mailto:gabrieldovalle2007@gmail.com"><img src="assets/btn-email.svg" alt="E-mail: gabrieldovalle2007@gmail.com" height="42"></a>
 <br><br>
-<img src="assets/perfil.svg" alt="Perfil. Atuação: desenvolvedor web autônomo. Formação: Sistemas de Informação, 4º período, UniDomBosco (AEDB). Foco: IA aplicada a processos. Entrega: da arquitetura ao deploy." width="100%">
+<picture><img src="assets/perfil.svg" alt="Perfil. Atuação: desenvolvedor web autônomo. Formação: Sistemas de Informação, 4º período, UniDomBosco (AEDB). Foco: IA aplicada a processos. Entrega: da arquitetura ao deploy." width="100%"></picture>
 </div>
 
 <details>
@@ -20,7 +20,7 @@ Acredito que interface boa é aquela que facilita: o usuário resolve o que veio
 
 ## Experiência e formação
 
-<img src="assets/experiencia.svg" alt="Experiência e formação: desenvolvedor web autônomo (2026 – atual); Jovem Aprendiz (CIEE) no Colégio Santa Ângela (mai/2025 – mar/2026); Sistemas de Informação na AEDB, 4º período. O mesmo conteúdo está em texto logo abaixo." width="100%">
+<picture><img src="assets/experiencia.svg" alt="Experiência e formação: desenvolvedor web autônomo (2026 – atual); Jovem Aprendiz (CIEE) no Colégio Santa Ângela (mai/2025 – mar/2026); Sistemas de Informação na AEDB, 4º período. O mesmo conteúdo está em texto logo abaixo." width="100%"></picture>
 
 <details>
 <summary><b>Atividades em detalhe</b></summary>
@@ -72,9 +72,9 @@ Manutenção e suporte em computadores; atendimento ao cliente e suporte interno
 
 ## Tech Stack
 
-<img src="assets/stack.svg" alt="Tech Stack. IA e Automação: Claude API, OpenAI API, RAG, LangChain, n8n, Webhooks. Front-end: React, Next.js, TypeScript, Tailwind CSS, Framer Motion, Three.js. Back-end e Dados: Node.js, Python, PostgreSQL, SQLite, Supabase, Prisma. Cloud e Entrega: AWS (EC2, S3, IAM), Vercel, Docker, Git e GitHub, CI/CD, Cloudflare. UI/UX: Figma, Design System, Acessibilidade, Responsivo." width="100%">
+<picture><img src="assets/stack.svg" alt="Tech Stack. IA e Automação: Claude API, OpenAI API, RAG, LangChain, n8n, Webhooks. Front-end: React, Next.js, TypeScript, Tailwind CSS, Framer Motion, Three.js. Back-end e Dados: Node.js, Python, PostgreSQL, SQLite, Supabase, Prisma. Cloud e Entrega: AWS (EC2, S3, IAM), Vercel, Docker, Git e GitHub, CI/CD, Cloudflare. UI/UX: Figma, Design System, Acessibilidade, Responsivo." width="100%"></picture>
 
 <br>
 
-<p align="center"><img src="assets/footer.svg" alt="Fim do perfil"><br>
+<p align="center"><picture><img src="assets/footer.svg" alt="Fim do perfil"></picture><br>
 <sub>Visual gerado por <a href="brand/build.py">brand/build.py</a>. Uso assistentes de IA (Claude Code) no desenvolvimento; as decisões, os testes e a revisão são meus.</sub></p>
